@@ -33,9 +33,26 @@ export const onShowPlayerSuccess = (player) => {
         <p>${player.position}</p>
         <p>${player.Team}</p>
         <p>${player._id}</p>
+        <form data-id="${player._id}">
+        <input type="text" name="firstName" value="${player.firstName}">
+        <input type="text" name="lastName" value="${player.lastName}">
+        <input type="text" name="position" value="${player.position}">
+        <input type="number" name="number" value="${player.Number}">
+        <input type="text" name="team" value="${player.Team}">
+        <input type="submit" value="Update PLayer">
+        </form>
+        <button data-id="${player._id}">Delete Player</button>
     `
     while(showPlayerContainer.firstChild) {
         showPlayerContainer.removeChild(showPlayerContainer.firstChild)
     }
     showPlayerContainer.appendChild(div)
+}
+
+export const onUpdatePlayerSuccess = () => {
+    messageContainer.innerText = 'Update was successful :)'
+}
+
+export const onDeletePlayerSuccess = () => {
+    messageContainer.innerText = 'Delete was successful :)'
 }
